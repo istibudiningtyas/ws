@@ -1,8 +1,8 @@
 <?php
 
 //1.koneksi database
-$konek = mysql_connect("127.0.0.1","root","") or die(mysql_error());
-$db = mysql_select_db("module_sit");
+$konek = mysql_connect("localhost","root","") or die(mysql_error());
+$db = mysql_select_db("mahasiswa");
 
 if ($konek) {
   echo "Berhasil Koneksi ke database. <br/>";
@@ -74,7 +74,7 @@ if ($generateXML) {
 
 // 5. membaca file XML
 // membuka file
-$url    = $_SERVER['SERVER_NAME']."/dev/ws/xml/bab-4/mahasiswa.xml";
+$url    = "localhost/ws/xml/bab-4/mahasiswa.xml";
 $client = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($client);
