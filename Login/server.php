@@ -1,5 +1,4 @@
 <?php
-  //call library
   require_once 'nusoap/lib/nusoap.php';
   require_once 'adodb/adodb.inc.php';
   $server = new nusoap_server();
@@ -24,6 +23,7 @@
     function login_ws($username, $password) { //enkripsi password dengan md5 $password = md5($password);
       //buat koneksi
       $db = NewADOConnection('mysql');
+      $password = md5($password);
       $db -> Connect('localhost','root','','data_mahasiswa'); //cek username dan password dari database
       $sql = $db -> Execute("SELECT * FROM user where username='$username' AND password='$password'");
       //Cek adanya username dan password di database
